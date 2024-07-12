@@ -39,12 +39,10 @@ WhatsApp Chat Analyzer is a web application built with Streamlit to analyze What
   python -m venv env`
   .\env\Scripts\activate
 
-
 ### Install the dependencies:
 
      ```sh
      pip install -r requirements.txt
-
 
 ## Usage
 
@@ -53,12 +51,10 @@ WhatsApp Chat Analyzer is a web application built with Streamlit to analyze What
      ```sh
      streamlit run app.py`
      
-
  -   Upload your WhatsApp chat data:
        - Export your chat from WhatsApp as a .txt file.
        - Upload the file using the file uploader in the sidebar.
-
-    Select a user to analyze and view the results.
+       - Select a user to analyze and view the results.
 
 ## File Structure
 
