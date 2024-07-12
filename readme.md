@@ -29,9 +29,10 @@ WhatsApp Chat Analyzer is a web application built with Streamlit to analyze What
 
 - On MacOS and Linux
 
-    `python3 -m venv env`
+    ```sh
+    python3 -m venv env`
     
-    `source env/bin/activate`
+    source env/bin/activate
 
 
 
