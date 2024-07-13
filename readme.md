@@ -29,36 +29,32 @@ WhatsApp Chat Analyzer is a web application built with Streamlit to analyze What
 
 - On MacOS and Linux
 
-    `python3 -m venv env`
-    
-    `source env/bin/activate`
-
-
+    ```sh
+    python3 -m venv env`
+    source env/bin/activate
 
 - On Windows:
 
-    `python -m venv env`
-
-    `.\env\Scripts\activate`
-
+  ```sh
+  python -m venv env`
+  .\env\Scripts\activate
 
 ### Install the dependencies:
 
-     `pip install -r requirements.txt`
-
+     ```sh
+     pip install -r requirements.txt
 
 ## Usage
 
  -   Run the Streamlit app:
 
-     `streamlit run app.py`
+     ```sh
+     streamlit run app.py`
      
-
  -   Upload your WhatsApp chat data:
        - Export your chat from WhatsApp as a .txt file.
        - Upload the file using the file uploader in the sidebar.
-
-    Select a user to analyze and view the results.
+       - Select a user to analyze and view the results.
 
 ## File Structure
 
@@ -66,7 +62,3 @@ WhatsApp Chat Analyzer is a web application built with Streamlit to analyze What
    - `helper.py`: Functions for data analysis and visualization.
    - `preprocessor.py`: Functions for preprocessing chat data.
    - `requirements.txt`: Python packages required.
-
-```python
-
-```
