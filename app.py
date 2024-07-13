@@ -14,6 +14,7 @@ def main():
     # File uploader to upload WhatsApp chat data
     uploaded_file = st.sidebar.file_uploader('Choose a File')
 
+
     if uploaded_file is not None:
         # Read and decode the uploaded file data
         bytes_data = uploaded_file.getvalue()
@@ -22,9 +23,6 @@ def main():
         try:
             # Preprocess the data using a custom function (prepocessor.preprocess assumed to be defined)
             df = preprocessor.preprocess(data)
-
-            # Display the processed DataFrame (uncomment if needed for debugging)
-            # st.dataframe(df)
 
             # Get unique users from the DataFrame
             user_list = df['user'].unique().tolist()

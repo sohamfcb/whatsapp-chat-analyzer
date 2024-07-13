@@ -5,28 +5,35 @@ def preprocess(data):
     # messages = re.split(r'\d{2}/\d{2}/\d{2,4},\s\d{1,2}:\d{2}\s-\s', data)[1:]
     # dates = re.findall(r'\d{2}/\d{2}/\d{2,4},\s\d{1,2}:\d{2}\s-\s', data)
 
-
-    messages=re.split('\d{2}/\d{2}/\d{4},\s\d{1,2}:\d{2}\s[AaPp][Mm]\s-\s',data)[1:]
-    # dates = re.findall(r'\d{2}/\d{2}/\d{2,4},\s\d{1,2}:\d{2}\s-\s', data)
-    dates=re.findall('\d{2}/\d{2}/\d{4},\s\d{1,2}:\d{2}\s[AaPp][Mm]\s-\s',data)
-
-    # messages=re.split('\d{2}/\d{2}/\d{4},\s\d{1,2}:\d{2}\s[AaPp][Mm]\s-\s',data)[1:]
-    # dates=re.findall('\d{2}/\d{2}/\d{4},\s\d{1,2}:\d{2}\s[AaPp][Mm]\s-\s',data)
+    messages=re.split('\d{2}/\d{2}/\d{2,4},\s\d{1,2}:\d{2}\s-\s',data)[1:]
+    dates=re.findall('\d{2}/\d{2}/\d{2,4},\s\d{1,2}:\d{2}\s-\s',data)
 
     df=pd.DataFrame({'user_message':messages,'message_date':dates})
-    df['message_date']=pd.to_datetime(df['message_date'], format='%d/%m/%Y, %H:%M %p - ')
+    df['message_date']=pd.to_datetime(df['message_date'],format='%d/%m/%y, %H:%M - ')
 
     if messages==[] or dates==[]:
 
-        messages=re.split(r'\[\d{2}/\d{2}/\d{2},\s\d{1,2}:\d{2}:\d{2}\s[AaPp][Mm]\]\s',data)[1:]
+        messages=re.split('\d{2}/\d{2}/\d{4},\s\d{1,2}:\d{2}\s[AaPp][Mm]\s-\s',data)[1:]
         # dates = re.findall(r'\d{2}/\d{2}/\d{2,4},\s\d{1,2}:\d{2}\s-\s', data)
-        dates=re.findall(r'\d{2}/\d{2}/\d{2},\s\d{1,2}:\d{2}:\d{2}\s[AaPp][Mm]',data)
-    # df = pd.DataFrame({'user_message': messages, 'message_date': dates})
-    # df['message_date'] = pd.to_datetime(df['message_date'], format='%d/%m/%Y, %H:%M - ')
+        dates=re.findall('\d{2}/\d{2}/\d{4},\s\d{1,2}:\d{2}\s[AaPp][Mm]\s-\s',data)
 
-        df = pd.DataFrame({'user_message': messages, 'message_date': dates})
-        # df2['message_date'] = pd.to_datetime(df2['message_date'], format='%d/%m/%Y, %H:%M - ')
-        df['message_date']=pd.to_datetime(df['message_date'])
+        # messages=re.split('\d{2}/\d{2}/\d{4},\s\d{1,2}:\d{2}\s[AaPp][Mm]\s-\s',data)[1:]
+        # dates=re.findall('\d{2}/\d{2}/\d{4},\s\d{1,2}:\d{2}\s[AaPp][Mm]\s-\s',data)
+
+        df=pd.DataFrame({'user_message':messages,'message_date':dates})
+        df['message_date']=pd.to_datetime(df['message_date'], format='%d/%m/%Y, %H:%M %p - ')
+
+        if messages==[] or dates==[]:
+
+            messages=re.split(r'\[\d{2}/\d{2}/\d{2},\s\d{1,2}:\d{2}:\d{2}\s[AaPp][Mm]\]\s',data)[1:]
+            # dates = re.findall(r'\d{2}/\d{2}/\d{2,4},\s\d{1,2}:\d{2}\s-\s', data)
+            dates=re.findall(r'\d{2}/\d{2}/\d{2},\s\d{1,2}:\d{2}:\d{2}\s[AaPp][Mm]',data)
+        # df = pd.DataFrame({'user_message': messages, 'message_date': dates})
+        # df['message_date'] = pd.to_datetime(df['message_date'], format='%d/%m/%Y, %H:%M - ')
+
+            df = pd.DataFrame({'user_message': messages, 'message_date': dates})
+            # df2['message_date'] = pd.to_datetime(df2['message_date'], format='%d/%m/%Y, %H:%M - ')
+            df['message_date']=pd.to_datetime(df['message_date'])
 
     users = []
     messages = []
